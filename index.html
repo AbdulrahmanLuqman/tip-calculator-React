@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(185, 41%, 84%);
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div id="container"></div>
+
+  <script type="text/babel">
+      var destination = document.querySelector("#container")
+
+      var Container = React.createClass({
+
+
+          render:function(){
+              var backgroundStyle = {
+                  width: "fit-content",
+                  height: "fit-content",
+                  backgroundColor: "hsl(0, 0%, 100%)",
+                  padding: 15,
+                  borderRadius: 10
+              };
+              return(
+                  <div style={backgroundStyle}>
+                      <Bills />
+                  </div>          
+              )
+          }
+      })
+
+      var Bills = React.createClass({
+          render:function(){
+              return(
+                  <div>
+                      <Bill />
+                  </div>
+              )
+          }
+      })
+
+      var Bill = React.createClass({
+          render:function(){
+              var billStyle = {
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 4
+              }
+              return(
+                  <div style={billStyle}>
+                      <label for="bill">Bill</label>
+                      <input type="text" />
+                  </div>
+              )
+          }
+      })
+
+      ReactDOM.render(
+          <Container />
+      ,
+          destination
+      )
+  </script>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
